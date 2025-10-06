@@ -5,34 +5,286 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الدعم الفني - 963 Cars</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            line-height: 1.6;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 { color: #032720; }
-        .contact { background: #f4f4f4; padding: 20px; border-radius: 8px; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #032720 0%, #0a4d3f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #032720 0%, #0a4d3f 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #032720;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0a4d3f;
+        }
+
+        .section h3 {
+            color: #0a4d3f;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p, .section li {
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-right: 5px solid #0a4d3f;
+        }
+
+        .contact-box h3 {
+            color: #032720;
+            margin-top: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .contact-item .icon {
+            font-size: 1.5em;
+            margin-left: 15px;
+            color: #0a4d3f;
+        }
+
+        .contact-item a {
+            color: #0a4d3f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid #0a4d3f;
+        }
+
+        .faq-item h3 {
+            color: #032720;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-right: 30px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: #032720;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+
+        .footer a {
+            color: #7ed957;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>الدعم الفني</h1>
-    
-    <div class="contact">
-        <h2>تواصل معنا</h2>
-        <p><strong>البريد الإلكتروني:</strong> 963.syria.cars@gmail.com</p>
-        <p><strong>الهاتف:</strong> +963 943 742 710</p>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 الدعم الفني</h1>
+            <p>نحن هنا لمساعدتك - 963 Cars</p>
+        </div>
+
+        <div class="content">
+            <div class="contact-box">
+                <h3>تواصل معنا</h3>
+                <div class="contact-item">
+                    <span class="icon">📧</span>
+                    <span><strong>البريد الإلكتروني:</strong> <a href="mailto:963.syria.cars@gmail.com">963.syria.cars@gmail.com</a></span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>الأسئلة الشائعة</h2>
+
+                <div class="faq-item">
+                    <h3>كيف أقوم بإنشاء حساب؟</h3>
+                    <p>يمكنك إنشاء حساب جديد عبر:</p>
+                    <ul>
+                        <li>التسجيل باستخدام البريد الإلكتروني وكلمة المرور</li>
+                        <li>تسجيل الدخول عبر حساب Google</li>
+                        <li>تسجيل الدخول عبر حساب Apple</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>كيف أضيف إعلان سيارة للبيع؟</h3>
+                    <p>لإضافة إعلان جديد:</p>
+                    <ul>
+                        <li>انقر على زر "+" أو "إضافة إعلان" في الصفحة الرئيسية</li>
+                        <li>املأ تفاصيل السيارة (الماركة، الموديل، السنة، السعر، إلخ)</li>
+                        <li>أضف صور واضحة للسيارة</li>
+                        <li>حدد موقع السيارة</li>
+                        <li>انقر على "نشر الإعلان"</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>كيف أتواصل مع البائع؟</h3>
+                    <p>للتواصل مع بائع السيارة:</p>
+                    <ul>
+                        <li>افتح صفحة تفاصيل السيارة</li>
+                        <li>اضغط على رقم الهاتف للاتصال المباشر</li>
+                        <li>أو استخدم زر WhatsApp للمراسلة</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>كيف أقوم بتعديل أو حذف إعلاني؟</h3>
+                    <p>لتعديل أو حذف إعلانك:</p>
+                    <ul>
+                        <li>اذهب إلى قسم "إعلاناتي" في حسابك</li>
+                        <li>اختر الإعلان الذي تريد تعديله</li>
+                        <li>اضغط على "تعديل" لتحديث التفاصيل</li>
+                        <li>أو اضغط على "حذف" لإزالة الإعلان نهائياً</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>كيف أبحث عن سيارة معينة؟</h3>
+                    <p>يمكنك البحث عن السيارات عبر:</p>
+                    <ul>
+                        <li>استخدام شريط البحث في الصفحة الرئيسية</li>
+                        <li>تطبيق الفلاتر (السعر، السنة، الماركة، المدينة، إلخ)</li>
+                        <li>البحث عن السيارات القريبة منك باستخدام الموقع الجغرافي</li>
+                        <li>تصفح الفئات المختلفة (جديدة، مستعملة، إلخ)</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>كيف أضيف سيارة إلى المفضلة؟</h3>
+                    <p>لحفظ السيارات المفضلة:</p>
+                    <ul>
+                        <li>افتح صفحة تفاصيل السيارة</li>
+                        <li>اضغط على أيقونة القلب ❤️</li>
+                        <li>ستجد جميع السيارات المفضلة في قسم "المفضلة" في حسابك</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>هل التطبيق مجاني؟</h3>
+                    <p>نعم، تطبيق 963 Cars مجاني تماماً للتحميل والاستخدام. يمكنك تصفح السيارات، إضافة إعلانات، والتواصل مع البائعين بدون أي رسوم.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>كيف أحمي حسابي؟</h3>
+                    <p>لحماية حسابك:</p>
+                    <ul>
+                        <li>استخدم كلمة مرور قوية وفريدة</li>
+                        <li>لا تشارك معلومات حسابك مع أي شخص</li>
+                        <li>قم بتسجيل الخروج بعد الانتهاء من استخدام الأجهزة المشتركة</li>
+                        <li>تأكد من تحديث التطبيق دائماً لآخر إصدار</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>الإبلاغ عن مشكلة</h2>
+                <p>إذا واجهت أي مشكلة في استخدام التطبيق أو وجدت محتوى غير مناسب، يرجى التواصل معنا فوراً عبر البريد الإلكتروني:</p>
+                <div class="contact-item" style="justify-content: center; margin: 20px 0;">
+                    <span class="icon">📧</span>
+                    <a href="mailto:support@963cars.com" style="font-size: 1.2em;">support@963cars.com</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>ساعات العمل</h2>
+                <p>فريق الدعم الفني متاح للإجابة على استفساراتك:</p>
+                <ul>
+                    <li><strong>الأيام:</strong> من السبت إلى الخميس</li>
+                    <li><strong>الساعات:</strong> من 9 صباحاً حتى 6 مساءً (بتوقيت دمشق)</li>
+                    <li><strong>الرد على البريد الإلكتروني:</strong> خلال 24-48 ساعة</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 963 Cars. جميع الحقوق محفوظة.</p>
+            <p>
+                <a href="https://anasyakoub79.github.io/963-cars-public/privacy-policy-ar.html">سياسة الخصوصية</a> | 
+            </p>
+        </div>
     </div>
-
-    <h2>الأسئلة الشائعة</h2>
-    <h3>كيف أضيف سيارة للبيع؟</h3>
-    <p>انقر على زر "إضافة إعلان" في الصفحة الرئيسية...</p>
-
-    <h3>كيف أتواصل مع البائع؟</h3>
-    <p>اضغط على رقم الهاتف في صفحة تفاصيل السيارة...</p>
-
-    <h3>كيف أحذف إعلاني؟</h3>
-    <p>اذهب إلى "إعلاناتي" واختر الإعلان المراد حذفه...</p>
 </body>
 </html>
