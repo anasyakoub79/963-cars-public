@@ -1,1177 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيارات 963 - منصتك الموثوقة لتداول السيارات</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            direction: rtl;
-        }
-
-        /* Logo Fonts */
-        @font-face {
-            font-family: 'Bahnschrift';
-            src: local('Bahnschrift SemiBold Condensed');
-            font-weight: 600;
-            font-stretch: condensed;
-        }
-
-        /* Navigation */
-        nav {
-            background: #001716;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #988561;
-            font-size: 2rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: Arial, sans-serif;
-        }
-
-        .logo .number {
-            font-family: 'Bahnschrift', 'Arial Narrow', 'Liberation Sans Narrow', sans-serif;
-            font-weight: 600;
-            font-stretch: condensed;
-            letter-spacing: -1px;
-        }
-
-        .logo .cars {
-            font-family: 'Brush Script MT', cursive;
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #988561;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 2rem;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Hero Section */
-        #home {
-            background: linear-gradient(135deg, #001716 0%, #003a36 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            margin-top: 60px;
-        }
-
-        .hero-content {
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #988561;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 .number {
-            font-family: 'Bahnschrift', 'Arial Narrow', 'Liberation Sans Narrow', sans-serif;
-            font-weight: 600;
-            font-stretch: condensed;
-        }
-
-        h1 .cars {
-            font-family: 'Brush Script MT', cursive;
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .app-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .app-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: #988561;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .app-btn:hover {
-            background: #b39a71;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(152, 133, 97, 0.3);
-        }
-
-        .app-btn svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Screenshots Grid */
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .screenshot-item {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: transform 0.3s, box-shadow 0.3s;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .screenshot-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(152, 133, 97, 0.3);
-        }
-
-        .screenshot-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* About Section */
-        #about {
-            background: #f8f9fa;
-        }
-
-        #about h2, #contact h2, .legal-section h2 {
-            color: #001716;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        #contact h2 {
-            color: #988561;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #988561;
-        }
-
-        .stat-label {
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, #001716 0%, #003a36 100%);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #988561;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid rgba(152, 133, 97, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-family: inherit;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: #988561;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background: #b39a71;
-            transform: translateY(-2px);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .contact-item-icon {
-            font-size: 1.5rem;
-            color: #988561;
-            min-width: 30px;
-        }
-
-        .contact-item-content h3 {
-            color: #988561;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Legal Sections */
-        .legal-section {
-            background: #f8f9fa;
-            padding: 6rem 2rem;
-        }
-
-        .legal-content {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            line-height: 2;
-        }
-
-        .legal-content h2 {
-            color: #001716;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-content h3 {
-            color: #988561;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .legal-content p, .legal-content ul {
-            margin-bottom: 1rem;
-        }
-
-        .legal-content ul {
-            padding-right: 2rem;
-        }
-
-        .legal-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #001716;
-            color: #988561;
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: #988561;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #988561;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-section a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(152, 133, 97, 0.3);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #988561;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #001716;
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .tagline {
-                font-size: 1.2rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .screenshots-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .legal-content {
-                padding: 1.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <a href="#home" class="logo">
-                <span class="number">963</span>
-                <span class="cars">Cars</span>
-            </a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-            <ul id="nav-menu">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1><span class="number">963</span> <span class="cars">Cars</span></h1>
-                <p class="tagline">منصتك الموثوقة لتداول السيارات</p>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem;">تصفح، اشتري، وبع سيارات موثوقة بكل سهولة. فلتر حسب الماركة، السعر، أو الموديل لتحصل على أفضل النتائج فوراً.</p>
-                
-                <div class="app-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                        </svg>
-                        <span>حمّل من جوجل بلاي</span>
-                    </a>
-                    <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
-                        </svg>
-                        <span>حمّل من آب ستور</span>
-                    </a>
-                </div>
-
-                <div class="screenshots-grid">
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_01.jpg" alt="لقطة شاشة التطبيق 1">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_02.jpg" alt="لقطة شاشة التطبيق 2">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_03.jpg" alt="لقطة شاشة التطبيق 3">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_04.jpg" alt="لقطة شاشة التطبيق 4">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_05.jpg" alt="لقطة شاشة التطبيق 5">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_06.jpg" alt="لقطة شاشة التطبيق 6">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>من نحن</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>مرحباً بكم في <strong>سيارات 963</strong>، منصة سوق السيارات الرائدة المصممة لإحداث ثورة في طريقة شراء وبيع المركبات. نحن ندرك أن العثور على السيارة المثالية أو الوصول إلى المشترين المناسبين يمكن أن يكون أمراً صعباً، ولهذا السبب أنشأنا منصة حديثة وسهلة الاستخدام تجمع المشترين والبائعين معاً بكل سهولة.</p>
-                    
-                    <p>تقدم منصتنا حلاً شاملاً لتداول السيارات، وتتميز بمرشحات بحث متقدمة وقوائم سيارات مفصلة وعرض خريطة تفاعلية لمساعدتك على اكتشاف المركبات في منطقتك. سواء كنت تبحث عن سيارة فاخرة جديدة تماماً أو مركبة مستعملة موثوقة، توفر لك سيارات 963 جميع الأدوات التي تحتاجها لاتخاذ قرارات مستنيرة.</p>
-                    
-                    <p>بُنيت منصتنا بتقنية متطورة ومع التركيز على تجربة المستخدم، ويدعم تطبيقنا اللغتين العربية والإنجليزية، مما يجعله متاحاً لمجتمع متنوع من عشاق السيارات. نحن ملتزمون بتوفير سوق آمن وشفاف وفعال لجميع احتياجاتك في مجال السيارات.</p>
-                </div>
-                
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">+1000</div>
-                        <div class="stat-label">إعلان نشط</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">+500</div>
-                        <div class="stat-label">مستخدم سعيد</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">+100</div>
-                        <div class="stat-label">ماركة سيارة</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">دعم مستمر</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>تواصل معنا</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">الاسم</label>
-                            <input type="text" id="name" name="name" placeholder="اسمك" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">الموضوع</label>
-                            <input type="text" id="subject" name="subject" placeholder="عن ماذا تريد التحدث؟" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">الرسالة</label>
-                            <textarea id="message" name="message" placeholder="رسالتك..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
-                    </form>
-                </div>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📧</div>
-                        <div class="contact-item-content">
-                            <h3>البريد الإلكتروني</h3>
-                            <p>support@963cars.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📱</div>
-                        <div class="contact-item-content">
-                            <h3>حمّل تطبيقنا</h3>
-                            <p>احصل على تطبيق سيارات 963 على جهازك المحمول لأفضل تجربة</p>
-                            <div class="app-buttons" style="justify-content: flex-start; margin-top: 1rem;">
-                                <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" class="app-btn" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">
-                                    جوجل بلاي
-                                </a>
-                                <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" class="app-btn" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">
-                                    آب ستور
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-item-icon">🌐</div>
-                        <div class="contact-item-content">
-                            <h3>تواصل معنا</h3>
-                            <p>تابعنا على وسائل التواصل الاجتماعي لآخر التحديثات والإعلانات المميزة</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="privacy-policy" class="legal-section" style="display: none;">
-        <div class="container">
-            <div class="legal-content">
-                <h2 style="text-align: center; color: #988561;">سياسة الخصوصية لسيارات 963</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 2rem;"><em>آخر تحديث: ٢٩ سبتمبر ٢٠٢٥</em></p>
-
-                <h2>١. مقدمة</h2>
-                <p>مرحباً بكم في سيارات 963 ("نحن" أو "ضمير الملكية"). نحن ملتزمون بحماية خصوصيتكم وضمان أمن معلوماتكم الشخصية. توضح سياسة الخصوصية هذه كيفية جمع معلوماتكم واستخدامها والإفصاح عنها وحمايتها عند استخدامكم تطبيقنا للهواتف المحمولة.</p>
-
-                <h2>٢. المعلومات التي نجمعها</h2>
-                
-                <h3>٢.١ المعلومات الشخصية</h3>
-                <ul>
-                    <li><strong>معلومات الحساب:</strong> الاسم، عنوان البريد الإلكتروني، رقم الهاتف</li>
-                    <li><strong>معلومات الملف الشخصي:</strong> العنوان، نوع الحساب (شخصي/تاجر)</li>
-                    <li><strong>معلومات الإعلان:</strong> تفاصيل السيارة، أوصافها، أسعارها</li>
-                </ul>
-
-                <h3>٢.٢ بيانات الموقع</h3>
-                <ul>
-                    <li><strong>موقع GPS:</strong> عند إضافة إعلانات سيارات، نجمع بيانات الموقع لعرض مواقع السيارات على الخرائط</li>
-                    <li><strong>معلومات المدينة:</strong> مدينتك المختارة لأغراض الفلترة والبحث</li>
-                </ul>
-
-                <h3>٢.٣ الصور والوسائط</h3>
-                <ul>
-                    <li><strong>صور السيارات:</strong> الصور التي تُحمّلها لإعلانات سيارتك</li>
-                    <li><strong>صور الملف الشخصي:</strong> صور ملف شخصي اختيارية (في حال تفعيل الميزة)</li>
-                </ul>
-
-                <h3>٢.٤ بيانات الاستخدام</h3>
-                <ul>
-                    <li><strong>نشاط التطبيق:</strong> الصفحات التي تمت مشاهدتها، الميزات المستخدمة، الوقت المستغرق</li>
-                    <li><strong>معلومات الجهاز:</strong> نوع الجهاز، نظام التشغيل، إصدار التطبيق</li>
-                    <li><strong>عدد المشاهدات:</strong> عدد مرات مشاهدة إعلاناتك</li>
-                </ul>
-
-                <h3>٢.٥ بيانات الاتصال</h3>
-                <ul>
-                    <li><strong>تفاعلات التواصل:</strong> عند تواصلك مع البائعين عبر التطبيق</li>
-                    <li><strong>الإشعارات:</strong> تفضيلاتك وسجل إشعاراتك</li>
-                </ul>
-
-                <h2>٣. كيف نستخدم معلوماتك</h2>
-                <p>نستخدم معلوماتك للأغراض التالية:</p>
-                <ul>
-                    <li>إنشاء حسابك وإدارته</li>
-                    <li>عرض وإدارة قوائم سيارتك</li>
-                    <li>تمكين التواصل بين المشترين والبائعين</li>
-                    <li>عرض قوائمك على الخريطة</li>
-                    <li>إرسال إشعارات حول قوائمك</li>
-                    <li>تحسين وظائف التطبيق وتجربة المستخدم</li>
-                    <li>الامتثال للالتزامات القانونية</li>
-                    <li>منع الاحتيال وإساءة الاستخدام</li>
-                </ul>
-
-                <h2>٤. مشاركة المعلومات</h2>
-                
-                <h3>٤.١ المعلومات العامة</h3>
-                <p>المعلومات التالية متاحة لجميع مستخدمي التطبيق:</p>
-                <ul>
-                    <li>قوائم السيارات (الماركة، الطراز، السعر، الصور، الموقع على الخريطة)</li>
-                    <li>اسم البائع ورقم هاتفه (على صفحات تفاصيل السيارة)</li>
-                    <li>موقع السيارة في المدينة</li>
-                </ul>
-
-                <h3>٤.٢ لا نبيع بياناتك</h3>
-                <p>لا نبيع معلوماتك الشخصية لأي طرف ثالث.</p>
-
-                <h3>٤.٣ مزودو الخدمة</h3>
-                <p>نشارك البيانات مع:</p>
-                <ul>
-                    <li><strong>Supabase:</strong> مزود قاعدة البيانات الخلفية لدينا (استضافة البيانات)</li>
-                    <li><strong>خدمات الخرائط:</strong> لعرض مواقع السيارات</li>
-                    <li><strong>التخزين السحابي:</strong> لتخزين الصور</li>
-                </ul>
-
-                <h3>٤.٤ المتطلبات القانونية</h3>
-                <p>قد نُفصح عن المعلومات إذا كان القانون يتطلب ذلك أو من أجل:</p>
-                <ul>
-                    <li>الامتثال للإجراءات القانونية</li>
-                    <li>حماية حقوقنا وسلامتنا</li>
-                    <li>منع الاحتيال أو المشاكل الأمنية</li>
-                </ul>
-
-                <h2>٥. أمن البيانات</h2>
-                <p>نطبق إجراءات أمنية قياسية في هذا المجال:</p>
-                <ul>
-                    <li>نقل البيانات المشفرة (HTTPS/SSL)</li>
-                    <li>مصادقة آمنة</li>
-                    <li>تحديثات أمنية منتظمة</li>
-                    <li>ضوابط الوصول والمراقبة</li>
-                </ul>
-
-                <h2>٦. حقوقك</h2>
-                <p>لديك الحق في:</p>
-                <ul>
-                    <li><strong>الوصول:</strong> طلب نسخة من بياناتك الشخصية</li>
-                    <li><strong>التصحيح:</strong> تحديث أو تصحيح المعلومات غير الدقيقة</li>
-                    <li><strong>الحذف:</strong> طلب حذف حسابك وبياناتك</li>
-                    <li><strong>إمكانية النقل:</strong> استلام بياناتك في جهاز محمول الصيغة</li>
-                    <li><strong>اعتراض:</strong> الاعتراض على معالجة بياناتك</li>
-                    <li><strong>سحب الموافقة:</strong> سحب الموافقة في أي وقت</li>
-                </ul>
-                <p>لممارسة هذه الحقوق، تواصل معنا على: support@963cars.com</p>
-
-                <h2>٧. الاحتفاظ بالبيانات</h2>
-                <ul>
-                    <li><strong>الحسابات النشطة:</strong> يتم الاحتفاظ بالبيانات أثناء نشاط الحساب</li>
-                    <li><strong>الحسابات المحذوفة:</strong> يتم حذف البيانات خلال 30 يوماً من حذف الحساب</li>
-                    <li><strong>القوائم المباعة:</strong> تتم إزالتها من القوائم النشطة، ولكن قد يتم الاحتفاظ بها لأغراض حفظ السجلات</li>
-                </ul>
-
-                <h2>٨. خصوصية الأطفال</h2>
-                <p>تطبيقنا غير مخصص للمستخدمين دون سن 16 عاماً. لا نجمع بيانات من الأطفال عمداً.</p>
-
-                <h2>٩. نقل البيانات الدولي</h2>
-                <p>قد يتم نقل بياناتك إلى دول خارج سوريا ومعالجتها فيها. نضمن تطبيق إجراءات الحماية المناسبة.</p>
-
-                <h2>١٠. ملفات تعريف الارتباط والتتبع</h2>
-                <p>نستخدم الحد الأدنى من التتبع:</p>
-                <ul>
-                    <li><strong>إدارة الجلسة:</strong> لإبقائك مسجلاً</li>
-                    <li><strong>التفضيلات:</strong> لتذكر إعدادات اللغة والعملة</li>
-                    <li><strong>التحليلات:</strong> لفهم استخدام التطبيق (مجهول الهوية)</li>
-                </ul>
-
-                <h2>١١. روابط الجهات الخارجية</h2>
-                <p>قد يحتوي تطبيقنا على روابط لخدمات جهات خارجية (مثل واتساب للتواصل). لسنا مسؤولين عن ممارسات الخصوصية الخاصة بهم.</p>
-
-                <h2>١٢. تغييرات سياسة الخصوصية</h2>
-                <p>قد نقوم بتحديث هذه السياسة بشكل دوري. سيتم إخطارك بالتغييرات الجوهرية من خلال:</p>
-                <ul>
-                    <li>إشعارات داخل التطبيق</li>
-                    <li>إشعارات عبر البريد الإلكتروني</li>
-                    <li>ملاحظات تحديث التطبيق</li>
-                </ul>
-
-                <h2>١٣. تواصل معنا</h2>
-                <p>للاستفسارات أو الاستفسارات المتعلقة بالخصوصية:</p>
-                <ul>
-                    <li><strong>البريد الإلكتروني:</strong> support@963cars.com</li>
-                    <li><strong>داخل التطبيق:</strong> قسم المساعدة والدعم</li>
-                </ul>
-
-                <h2>١٤. مسؤول البيانات</h2>
-                <p>سيارات ٩٦٣<br>سوريا<br>البريد الإلكتروني: support@963cars.com</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="terms-of-service" class="legal-section" style="display: none;">
-        <div class="container">
-            <div class="legal-content">
-                <h2 style="text-align: center; color: #988561;">شروط خدمة سيارات 963</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 2rem;"><em>آخر تحديث: ٢٩ سبتمبر ٢٠٢٥</em></p>
-
-                <h2>١. قبول الشروط</h2>
-                <p>باستخدامك أو وصولك إلى تطبيق سيارات 963 للجوال ("التطبيق")، فإنك توافق على الالتزام بشروط الخدمة هذه ("الشروط"). في حال عدم موافقتك على هذه الشروط، يُرجى عدم استخدام التطبيق.</p>
-
-                <h2>٢. الأهلية</h2>
-                <ul>
-                    <li>يجب أن يكون عمرك 16 عاماً على الأقل لاستخدام هذا التطبيق</li>
-                    <li>يجب تقديم معلومات دقيقة وكاملة أثناء التسجيل</li>
-                    <li>يجب ألا تُنشئ حساباً نيابةً عن شخص آخر دون إذن</li>
-                    <li>يُسمح للشخص الواحد بامتلاك حساب واحد فقط</li>
-                </ul>
-
-                <h2>٣. أنواع الحسابات</h2>
-                
-                <h3>٣.١ المستخدمون الشخصيون</h3>
-                <ul>
-                    <li>الأفراد الذين يبيعون سياراتهم الشخصية</li>
-                    <li>عدد محدود من الإعلانات النشطة</li>
-                </ul>
-
-                <h3>٣.٢ التجار</h3>
-                <ul>
-                    <li>تجار السيارات المحترفون أو الشركات</li>
-                    <li>قد تكون هناك حدود أعلى لعدد الإعلانات</li>
-                    <li>يجب الالتزام باللوائح التجارية</li>
-                </ul>
-
-                <h3>٣.٣ المسؤولون</h3>
-                <ul>
-                    <li>مشرفو المنصة بصلاحيات خاصة</li>
-                    <li>المسؤولون عن مراجعة الإعلانات والموافقة عليها</li>
-                </ul>
-
-                <h2>٤. مسؤوليات المستخدم</h2>
-                
-                <h3>٤.١ أمان الحساب</h3>
-                <ul>
-                    <li>أنت مسؤول عن الحفاظ على سرية بيانات اعتماد حسابك</li>
-                    <li>يجب عليك إخطارنا فوراً بأي وصول غير مصرح به</li>
-                    <li>أنت مسؤول عن جميع الأنشطة التي تتم على حسابك</li>
-                </ul>
-
-                <h3>٤.٢ معلومات دقيقة</h3>
-                <ul>
-                    <li>يجب أن تكون جميع معلومات إعلانات السيارات دقيقة وصادقة</li>
-                    <li>يجب أن تُمثل الصور السيارة الفعلية المعروضة للبيع</li>
-                    <li>يجب أن يعكس السعر السعر المطلوب الفعلي</li>
-                    <li>يجب أن تكون المسافة المقطوعة وسنة الصنع وحالة السيارة دقيقة</li>
-                </ul>
-
-                <h3>٤.٣ الأنشطة المحظورة</h3>
-                <p>يُحظر عليك:</p>
-                <ul>
-                    <li>نشر إعلانات كاذبة أو مضللة أو احتيالية</li>
-                    <li>استخدام التطبيق لأي أغراض غير قانونية</li>
-                    <li>مضايقة أو إساءة معاملة أو إيذاء المستخدمين الآخرين</li>
-                    <li>إرسال رسائل غير مرغوب فيها أو غير مرغوب فيها</li>
-                    <li>محاولة اختراق أو اختراق أمان التطبيق</li>
-                    <li>إنشاء حسابات متعددة للتحايل على القيود</li>
-                    <li>نشر مركبات لا تملكها أو لا تملك إذناً ببيعها</li>
-                    <li>استخدام التطبيق لإجراء عمليات احتيال أو معاملات احتيالية</li>
-                    <li>التلاعب بالأسعار أو التورط في تثبيتها</li>
-                    <li>انتحال شخصية الآخرين أو تحريف هويتك</li>
-                </ul>
-
-                <h2>٥. إرشادات الإعلانات</h2>
-                
-                <h3>٥.١ متطلبات المحتوى</h3>
-                <ul>
-                    <li>يجب أن تكون جميع الإعلانات لسيارات حقيقية متاحة للبيع</li>
-                    <li>يجب أن تتضمن الإعلانات معلومات دقيقة عن السيارة</li>
-                    <li>يجب أن تكون الصور واضحة وتعرض السيارة الأصلية</li>
-                    <li>يجب أن تكون الأوصاف صادقة وغير مضللة</li>
-                </ul>
-
-                <h3>٥.٢ الإعلانات المحظورة</h3>
-                <p>لا يُسمح لك بإدراج:</p>
-                <ul>
-                    <li>المركبات المسروقة</li>
-                    <li>المركبات ذات الوثائق المزورة</li>
-                    <li>المركبات التي لا تملكها أو ليس لديك تصريح لبيعها</li>
-                    <li>المركبات المُستعادة دون الإفصاح المناسب</li>
-                    <li>سلع أخرى غير السيارات (التطبيق خاص بالسيارات)</li>
-                </ul>
-
-                <h3>٥.٣ موافقة الإعلان</h3>
-                <ul>
-                    <li>جميع الإعلانات تتطلب موافقة إدارية</li>
-                    <li>نحتفظ بالحق في رفض أي إعلان دون إبداء أسباب</li>
-                    <li>قد تُحذف الإعلانات إذا كانت تُخالف هذه الشروط</li>
-                    <li>قد تتضمن الإعلانات المرفوضة سبباً للرفض</li>
-                </ul>
-
-                <h2>٦. الأسعار والرسوم</h2>
-                
-                <h3>٦.١ الأسعار الحالية</h3>
-                <ul>
-                    <li>إعلانات السيارات الأساسية مجانية حالياً</li>
-                    <li>قد تُفرض رسوم على الإعلانات المثبتة (الإعلانات المميزة)</li>
-                    <li>قد تُفرض رسوم على خدمات الإعلانات</li>
-                    <li>الأسعار قابلة للتغيير مع إشعار مسبق</li>
-                </ul>
-
-                <h3>٦.٢ شروط الدفع</h3>
-                <ul>
-                    <li>مدفوعات الميزات المميزة غير قابلة للاسترداد</li>
-                    <li>الأسعار يُعرض بالدولار الأمريكي و/أو الليرة السورية</li>
-                    <li>أسعار الصرف مُقدمة للإشارة فقط</li>
-                </ul>
-
-                <h2>٧. التواصل بين المستخدمين</h2>
-                
-                <h3>٧.١ معلومات الاتصال</h3>
-                <ul>
-                    <li>معلومات الاتصال بالبائع (رقم الهاتف) معروضة على الإعلانات</li>
-                    <li>يمكن للمستخدمين التواصل مع البائعين عبر الهاتف أو واتساب</li>
-                    <li>لسنا مسؤولين عن أي تواصل بين المستخدمين</li>
-                </ul>
-
-                <h3>٧.٢ مسؤولية المعاملات</h3>
-                <ul>
-                    <li>جميع المعاملات تتم مباشرةً بين المشترين والبائعين</li>
-                    <li>لسنا طرفاً في أي معاملة</li>
-                    <li>لا نضمن حالة المركبات أو قانونيتها أو وجودها</li>
-                    <li>يتحمل المستخدمون جميع المخاطر المرتبطة بالمعاملات</li>
-                </ul>
-
-                <h2>٨. الملكية الفكرية</h2>
-                
-                <h3>٨.١ محتواك</h3>
-                <ul>
-                    <li>تحتفظ بملكية الصور والمحتوى الذي تُحمّله</li>
-                    <li>بالتحميل، فإنك تمنحنا ترخيصاً لعرض محتواك</li>
-                    <li>تؤكد امتلاكك لحقوق جميع المحتوى الذي تُحمّله</li>
-                </ul>
-
-                <h3>٨.٢ ملكيتنا</h3>
-                <ul>
-                    <li>التطبيق وتصميمه ووظائفه ملك لنا</li>
-                    <li>لا يجوز لك نسخ التطبيق أو تعديله أو إعادة توزيعه</li>
-                    <li>علاماتنا التجارية وشعاراتنا محمية</li>
-                </ul>
-
-                <h2>٩. الخصوصية</h2>
-                <ul>
-                    <li>يخضع استخدامك للتطبيق لسياسة الخصوصية الخاصة بنا</li>
-                    <li>نجمع البيانات ونستخدمها كما هو موضح في سياسة الخصوصية</li>
-                    <li>باستخدامك للتطبيق، فإنك توافق على جمع البيانات واستخدامها</li>
-                </ul>
-
-                <h2>١٠. إخلاء المسؤولية</h2>
-                
-                <h3>١٠.١ خدمة "كما هي"</h3>
-                <ul>
-                    <li>يُقدم التطبيق "كما هو" دون أي ضمانات</li>
-                    <li>لا نضمن خدمة متواصلة أو خالية من الأخطاء</li>
-                    <li>لا نضمن دقة الإعلانات</li>
-                </ul>
-
-                <h3>١٠.٢ عدم ضمان المعاملة</h3>
-                <ul>
-                    <li>لا نتحقق من المركبات أو البائعين</li>
-                    <li>لا نضمن نجاح المعاملات</li>
-                    <li>يجب على المستخدمين إجراء العناية الواجبة بأنفسهم</li>
-                    <li>لسنا مسؤولين عن أي نزاعات بين المستخدمين</li>
-                </ul>
-
-                <h2>١١. تحديد المسؤولية</h2>
-                <ul>
-                    <li>لسنا مسؤولين عن أي أضرار غير مباشرة أو عرضية أو تبعية</li>
-                    <li>لن يتجاوز إجمالي مسؤوليتنا المبلغ الذي دفعته مقابل الخدمات المميزة (إن وجدت)</li>
-                </ul>
-
-                <h2>١٢. تغييرات الشروط</h2>
-                <ul>
-                    <li>قد نعدل هذه الشروط في أي وقت</li>
-                    <li>سيتم إخطار التغييرات الجوهرية عبر التطبيق أو البريد الإلكتروني</li>
-                    <li>الاستمرار في الاستخدام بعد التغييرات يشكل قبولاً</li>
-                </ul>
-
-                <h2>١٣. تواصل معنا</h2>
-                <p>للأسئلة حول هذه الشروط:</p>
-                <ul>
-                    <li><strong>البريد الإلكتروني:</strong> support@963cars.com</li>
-                    <li><strong>داخل التطبيق:</strong> قسم المساعدة والدعم</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="data-collection" class="legal-section" style="display: none;">
-        <div class="container">
-            <div class="legal-content">
-                <h2 style="text-align: center; color: #988561;">البيانات التي نجمعها</h2>
-
-                <p>تجمع سيارات 963 المعلومات التالية لتقديم خدمة سوق السيارات:</p>
-
-                <h2>١. معلومات الحساب</h2>
-                <ul>
-                    <li>الاسم</li>
-                    <li>البريد الإلكتروني</li>
-                    <li>رقم الهاتف</li>
-                    <li>العنوان (اختياري)</li>
-                    <li>نوع الحساب (شخصي أو تاجر)</li>
-                </ul>
-
-                <h2>٢. بيانات عرض السيارة</h2>
-                <ul>
-                    <li>تفاصيل السيارة (الماركة، الطراز، سنة الصنع، السعر، إلخ.)</li>
-                    <li>صور السيارة</li>
-                    <li>الموقع (إحداثيات GPS لعرض الخريطة)</li>
-                    <li>معلومات المدينة</li>
-                    <li>الوصف والحالة</li>
-                </ul>
-
-                <h2>٣. معلومات الاستخدام</h2>
-                <ul>
-                    <li>الصفحات التي تمت مشاهدتها في التطبيق</li>
-                    <li>الميزات المستخدمة</li>
-                    <li>عدد مرات مشاهدة إعلاناتك</li>
-                    <li>معلومات الجهاز (النوع، إصدار نظام التشغيل)</li>
-                </ul>
-
-                <h2>٤. بيانات الاتصال</h2>
-                <ul>
-                    <li>تفاعلات التواصل مع البائعين</li>
-                    <li>تفضيلات الإشعارات</li>
-                </ul>
-
-                <h2>كيف نستخدم بياناتك</h2>
-                <ul>
-                    <li>عرض إعلانات سيارتك للمشترين المحتملين</li>
-                    <li>تمكين التواصل بين المشترين والبائعين</li>
-                    <li>عرض الإعلانات على الخريطة</li>
-                    <li>إرسال إشعارات إليك حول إعلاناتك</li>
-                    <li>تحسين أداء التطبيق وميزاته</li>
-                </ul>
-
-                <h2>مشاركة البيانات</h2>
-                <ul>
-                    <li>إعلاناتك عامة ومرئية لجميع المستخدمين</li>
-                    <li>يظهر اسمك ورقم هاتفك في إعلاناتك</li>
-                    <li>نستخدم Supabase لاستضافة قواعد البيانات</li>
-                    <li>لا نبيع بياناتك لأي جهات خارجية أبداً</li>
-                </ul>
-
-                <h2>حقوقك</h2>
-                <ul>
-                    <li>الوصول إلى بياناتك</li>
-                    <li>تصحيح المعلومات غير الدقيقة</li>
-                    <li>حذف حسابك وبياناتك</li>
-                    <li>تنزيل بياناتك</li>
-                    <li>سحب الموافقة</li>
-                </ul>
-
-                <p style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                    للاطلاع على التفاصيل الكاملة، يرجى قراءة <a href="#" onclick="showSection('privacy-policy'); return false;" style="color: #988561; text-decoration: underline;">سياسة الخصوصية</a> الخاصة بنا.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><span style="font-family: 'Bahnschrift', 'Arial Narrow', sans-serif; font-weight: 600;">963</span> <span style="font-family: 'Brush Script MT', cursive;">Cars</span></h3>
-                    <p>منصتك الموثوقة لتداول السيارات</p>
-                </div>
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#about">من نحن</a></li>
-                        <li><a href="#contact">تواصل معنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>قانوني</h3>
-                    <ul>
-                        <li><a href="#" onclick="showSection('privacy-policy'); return false;">سياسة الخصوصية</a></li>
-                        <li><a href="#" onclick="showSection('terms-of-service'); return false;">شروط الخدمة</a></li>
-                        <li><a href="#" onclick="showSection('data-collection'); return false;">جمع البيانات</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>حمّل التطبيق</h3>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" style="display: inline-block;">جوجل بلاي</a>
-                        <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" style="display: inline-block;">آب ستور</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 سيارات 963. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('active');
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('شكراً لرسالتك! سنعود إليك قريباً.');
-            event.target.reset();
-        }
-
-        function showSection(sectionId) {
-            // Hide all main sections
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('about').style.display = 'none';
-            document.getElementById('contact').style.display = 'none';
-            
-            // Hide all legal sections
-            document.getElementById('privacy-policy').style.display = 'none';
-            document.getElementById('terms-of-service').style.display = 'none';
-            document.getElementById('data-collection').style.display = 'none';
-            
-            // Show the requested section
-            document.getElementById(sectionId).style.display = 'block';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Close mobile menu if open
-            document.getElementById('nav-menu').classList.remove('active');
-        }
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                
-                // Only handle hash links for main sections
-                if (href === '#home' || href === '#about' || href === '#contact') {
-                    e.preventDefault();
-                    
-                    // Show all main sections
-                    document.getElementById('home').style.display = 'flex';
-                    document.getElementById('about').style.display = 'block';
-                    document.getElementById('contact').style.display = 'block';
-                    
-                    // Hide all legal sections
-                    document.getElementById('privacy-policy').style.display = 'none';
-                    document.getElementById('terms-of-service').style.display = 'none';
-                    document.getElementById('data-collection').style.display = 'none';
-                    
-                    // Scroll to target
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                    
-                    // Close mobile menu if open
-                    document.getElementById('nav-menu').classList.remove('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
