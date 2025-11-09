@@ -221,38 +221,123 @@
             flex-shrink: 0;
         }
 
-        /* Screenshots Grid */
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        /* Screenshots Slider */
+        .screenshots-container {
             margin-top: 3rem;
             max-width: 100%;
-            padding: 0 0.5rem;
+            height: 60vh;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .screenshots-slider {
+            display: flex;
+            height: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .screenshots-slider::-webkit-scrollbar {
+            display: none;
         }
 
         .screenshot-item {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: transform 0.3s, box-shadow 0.3s;
+            flex: 0 0 100%;
+            height: 100%;
+            scroll-snap-align: start;
+            position: relative;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .screenshot-item:hover,
-        .screenshot-item:active {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(152, 133, 97, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
 
         .screenshot-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-height: 400px;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        /* Navigation Dots */
+        .screenshots-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0 1rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .dot.active {
+            background: #988561;
+            transform: scale(1.2);
+        }
+
+        /* Navigation Arrows */
+        .screenshots-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(152, 133, 97, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+            z-index: 10;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .screenshots-nav:hover {
+            background: rgba(152, 133, 97, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .screenshots-nav.prev {
+            left: 1rem;
+        }
+
+        .screenshots-nav.next {
+            right: 1rem;
+        }
+
+        .screenshots-nav:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Hide nav arrows on small screens */
+        @media (max-width: 768px) {
+            .screenshots-nav {
+                display: none;
+            }
         }
 
         /* About Section */
@@ -538,16 +623,17 @@
                 min-width: 200px;
             }
             
-            .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             h1 {
                 font-size: 3rem;
             }
             
             .tagline {
                 font-size: 1.4rem;
+            }
+            
+            .screenshots-container {
+                height: 70vh;
+                min-height: 500px;
             }
         }
 
@@ -601,9 +687,13 @@
                 margin-bottom: 0;
             }
 
-            .screenshots-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
+            .screenshots-container {
+                height: 80vh;
+                min-height: 600px;
+            }
+
+            .screenshots-nav {
+                display: flex;
             }
 
             .footer-content {
@@ -635,9 +725,12 @@
                 flex-wrap: nowrap;
             }
 
-            .screenshots-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            .screenshots-container {
+                height: 80vh;
+                min-height: 700px;
                 max-width: 1400px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .footer-content {
@@ -716,26 +809,35 @@
                     </a>
                 </div>
 
-                <div class="screenshots-grid">
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_03.jpg" alt="لقطة شاشة التطبيق - البحث والتصفح" loading="lazy">
+                <div class="screenshots-container">
+                    <div class="screenshots-slider" id="screenshotsSlider">
+                        <div class="screenshot-item">
+                            <img src="https://anasyakoub79.github.io/963-cars-public/6,9_03.jpg" alt="لقطة شاشة التطبيق - البحث والتصفح" loading="lazy">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://anasyakoub79.github.io/963-cars-public/6,9_02.jpg" alt="لقطة شاشة التطبيق - تفاصيل السيارة" loading="lazy">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://anasyakoub79.github.io/963-cars-public/6,9_01.jpg" alt="لقطة شاشة التطبيق - الشاشة الرئيسية" loading="lazy">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://anasyakoub79.github.io/963-cars-public/6,9_06.jpg" alt="لقطة شاشة التطبيق - إضافة إعلان" loading="lazy">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://anasyakoub79.github.io/963-cars-public/6,9_05.jpg" alt="لقطة شاشة التطبيق - الخريطة" loading="lazy">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://anasyakoub79.github.io/963-cars-public/6,9_04.jpg" alt="لقطة شاشة التطبيق - الملف الشخصي" loading="lazy">
+                        </div>
                     </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_02.jpg" alt="لقطة شاشة التطبيق - تفاصيل السيارة" loading="lazy">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_01.jpg" alt="لقطة شاشة التطبيق - الشاشة الرئيسية" loading="lazy">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_06.jpg" alt="لقطة شاشة التطبيق - إضافة إعلان" loading="lazy">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_05.jpg" alt="لقطة شاشة التطبيق - الخريطة" loading="lazy">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_04.jpg" alt="لقطة شاشة التطبيق - الملف الشخصي" loading="lazy">
-                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="screenshots-nav prev" onclick="navigateSlider(-1)" aria-label="الصورة السابقة">‹</button>
+                    <button class="screenshots-nav next" onclick="navigateSlider(1)" aria-label="الصورة التالية">›</button>
                 </div>
+                
+                <!-- Navigation Dots -->
+                <div class="screenshots-dots" id="screenshotsDots"></div>
             </div>
         </div>
     </section>
@@ -1292,6 +1394,135 @@
     </footer>
 
     <script>
+        let currentSlide = 0;
+        const totalSlides = 6;
+
+        // Initialize slider
+        function initializeSlider() {
+            const dotsContainer = document.getElementById('screenshotsDots');
+            
+            // Create dots
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'dot';
+                dot.setAttribute('aria-label', `الانتقال للصورة ${i + 1}`);
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+            
+            // Add touch swipe support
+            addSwipeSupport();
+            updateSlider();
+        }
+
+        // Navigate slider
+        function navigateSlider(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            updateSlider();
+        }
+
+        // Go to specific slide
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+
+        // Update slider position and dots
+        function updateSlider() {
+            const slider = document.getElementById('screenshotsSlider');
+            const dots = document.querySelectorAll('.dot');
+            
+            // Update slider position
+            slider.scrollTo({
+                left: currentSlide * slider.offsetWidth,
+                behavior: 'smooth'
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update navigation buttons
+            const prevBtn = document.querySelector('.screenshots-nav.prev');
+            const nextBtn = document.querySelector('.screenshots-nav.next');
+            
+            if (prevBtn && nextBtn) {
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+            }
+        }
+
+        // Add swipe support for touch devices
+        function addSwipeSupport() {
+            const slider = document.getElementById('screenshotsSlider');
+            let startX = 0;
+            let startY = 0;
+            let isScrolling = false;
+
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                isScrolling = false;
+            }, { passive: true });
+
+            slider.addEventListener('touchmove', (e) => {
+                if (!startX || !startY) return;
+
+                const diffX = startX - e.touches[0].clientX;
+                const diffY = startY - e.touches[0].clientY;
+
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    isScrolling = true;
+                }
+            }, { passive: true });
+
+            slider.addEventListener('touchend', (e) => {
+                if (!isScrolling) return;
+
+                const diffX = startX - e.changedTouches[0].clientX;
+                
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        navigateSlider(1); // Swipe left - next slide
+                    } else {
+                        navigateSlider(-1); // Swipe right - previous slide
+                    }
+                }
+
+                startX = 0;
+                startY = 0;
+                isScrolling = false;
+            }, { passive: true });
+
+            // Handle scroll events to sync with dots
+            slider.addEventListener('scroll', () => {
+                const newSlide = Math.round(slider.scrollLeft / slider.offsetWidth);
+                if (newSlide !== currentSlide) {
+                    currentSlide = newSlide;
+                    const dots = document.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSlide);
+                    });
+                }
+            });
+        }
+
+        // Auto-play functionality (optional)
+        function startAutoPlay() {
+            setInterval(() => {
+                navigateSlider(1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
             menu.classList.toggle('active');
@@ -1351,6 +1582,14 @@
             if (window.innerWidth > 768) {
                 document.getElementById('nav-menu').classList.remove('active');
             }
+            updateSlider(); // Update slider on resize
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSlider();
+            // Uncomment the line below if you want auto-play
+            // startAutoPlay();
         });
 
         // Smooth scrolling for navigation
