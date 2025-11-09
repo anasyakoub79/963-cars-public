@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
     <title>963 Cars - منصتك الموثوقة لتداول السيارات</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,6 +17,8 @@
             line-height: 1.6;
             color: #333;
             direction: rtl;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
 
         /* Logo Fonts */
@@ -30,7 +32,7 @@
         /* Navigation */
         nav {
             background: #001716;
-            padding: 1rem 2rem;
+            padding: 1rem 1rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -48,7 +50,7 @@
 
         .logo {
             color: #988561;
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -71,29 +73,68 @@
 
         nav ul {
             list-style: none;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #001716;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid rgba(152, 133, 97, 0.3);
+        }
+
+        nav ul.active {
             display: flex;
-            gap: 2rem;
+        }
+
+        nav ul li {
+            margin: 0.5rem 0;
         }
 
         nav a {
             color: #988561;
             text-decoration: none;
             transition: opacity 0.3s;
+            display: block;
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1.1rem;
         }
 
         nav a:hover {
             opacity: 0.7;
+            background: rgba(152, 133, 97, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #988561;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mobile-menu-btn:active {
+            background: rgba(152, 133, 97, 0.2);
+            border-radius: 4px;
         }
 
         /* Sections */
         section {
-            padding: 6rem 2rem;
-            min-height: 100vh;
+            padding: 4rem 1rem;
+            min-height: auto;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 0.5rem;
         }
 
         /* Hero Section */
@@ -102,18 +143,22 @@
             color: white;
             display: flex;
             align-items: center;
-            margin-top: 60px;
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            padding: 2rem 1rem;
         }
 
         .hero-content {
             text-align: center;
+            width: 100%;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #988561;
             font-family: Arial, sans-serif;
+            line-height: 1.2;
         }
 
         h1 .number {
@@ -129,22 +174,25 @@
         }
 
         .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
             opacity: 0.9;
+            line-height: 1.4;
         }
 
         .app-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
             margin: 2rem 0;
         }
 
         .app-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
             padding: 1rem 2rem;
             background: #988561;
@@ -153,60 +201,72 @@
             border-radius: 12px;
             transition: all 0.3s;
             font-weight: 600;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 280px;
+            min-height: 50px;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .app-btn:hover {
+        .app-btn:hover,
+        .app-btn:active {
             background: #b39a71;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(152, 133, 97, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(152, 133, 97, 0.4);
         }
 
         .app-btn svg {
             width: 24px;
             height: 24px;
+            flex-shrink: 0;
         }
 
         /* Screenshots Grid */
         .screenshots-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 100%;
+            padding: 0 0.5rem;
         }
 
         .screenshot-item {
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             transition: transform 0.3s, box-shadow 0.3s;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .screenshot-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(152, 133, 97, 0.3);
+        .screenshot-item:hover,
+        .screenshot-item:active {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(152, 133, 97, 0.3);
         }
 
         .screenshot-item img {
             width: 100%;
             height: auto;
             display: block;
+            max-height: 400px;
+            object-fit: cover;
         }
 
         /* About Section */
         #about {
             background: #f8f9fa;
+            padding: 3rem 1rem;
         }
 
         #about h2, #contact h2, .legal-section h2 {
             color: #001716;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 2rem;
             text-align: center;
+            line-height: 1.3;
         }
 
         #contact h2 {
@@ -214,61 +274,66 @@
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            display: block;
         }
 
         .about-text p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.8;
+            text-align: justify;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1rem;
             margin-top: 2rem;
         }
 
         .stat {
             background: white;
-            padding: 1.5rem;
+            padding: 1.5rem 1rem;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .stat:active {
+            transform: scale(0.98);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #988561;
+            line-height: 1.2;
         }
 
         .stat-label {
             color: #666;
             margin-top: 0.5rem;
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
         #contact {
             background: linear-gradient(135deg, #001716 0%, #003a36 100%);
             color: white;
+            padding: 3rem 1rem;
         }
 
         .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            display: block;
         }
 
         .contact-form {
             background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
+            padding: 2rem 1rem;
             border-radius: 12px;
             backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
         }
 
         .form-group {
@@ -277,28 +342,40 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             color: #988561;
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
+            padding: 1rem;
             border: 1px solid rgba(152, 133, 97, 0.3);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             font-family: inherit;
+            font-size: 1rem;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #988561;
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .form-group textarea {
-            min-height: 150px;
+            min-height: 120px;
             resize: vertical;
         }
 
@@ -313,9 +390,12 @@
             font-weight: 600;
             transition: all 0.3s;
             width: 100%;
+            min-height: 50px;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .submit-btn:hover {
+        .submit-btn:hover,
+        .submit-btn:active {
             background: #b39a71;
             transform: translateY(-2px);
         }
@@ -330,6 +410,9 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .contact-item-icon {
@@ -341,42 +424,51 @@
         .contact-item-content h3 {
             color: #988561;
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item-content p {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
         }
 
         /* Legal Sections */
         .legal-section {
             background: #f8f9fa;
-            padding: 6rem 2rem;
+            padding: 3rem 1rem;
         }
 
         .legal-content {
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 2rem 1rem;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            line-height: 2;
+            line-height: 1.8;
         }
 
         .legal-content h2 {
             color: #001716;
             margin-top: 2rem;
             margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         .legal-content h3 {
             color: #988561;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .legal-content p, .legal-content ul {
             margin-bottom: 1rem;
+            font-size: 1rem;
         }
 
         .legal-content ul {
-            padding-right: 2rem;
+            padding-right: 1.5rem;
         }
 
         .legal-content li {
@@ -387,14 +479,14 @@
         footer {
             background: #001716;
             color: #988561;
-            padding: 3rem 2rem;
+            padding: 2rem 1rem;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -402,6 +494,7 @@
         .footer-section h3 {
             color: #988561;
             margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
         .footer-section ul {
@@ -409,7 +502,7 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .footer-section a {
@@ -417,9 +510,13 @@
             text-decoration: none;
             opacity: 0.8;
             transition: opacity 0.3s;
+            display: block;
+            padding: 0.25rem 0;
+            font-size: 1rem;
         }
 
-        .footer-section a:hover {
+        .footer-section a:hover,
+        .footer-section a:active {
             opacity: 1;
         }
 
@@ -429,65 +526,154 @@
             border-top: 1px solid rgba(152, 133, 97, 0.3);
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #988561;
-            font-size: 1.5rem;
-            cursor: pointer;
+        /* Responsive - Larger Mobile */
+        @media (min-width: 480px) {
+            .app-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .app-btn {
+                width: auto;
+                min-width: 200px;
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Responsive - Tablet */
+        @media (min-width: 768px) {
             nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #001716;
-                flex-direction: column;
-                padding: 1rem;
+                display: flex;
+                position: static;
+                background: transparent;
+                flex-direction: row;
+                padding: 0;
+                gap: 2rem;
+                border-top: none;
             }
 
-            nav ul.active {
-                display: flex;
+            nav ul li {
+                margin: 0;
+            }
+
+            nav a {
+                padding: 0.5rem;
+                text-align: left;
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: none;
             }
 
-            h1 {
+            section {
+                padding: 6rem 2rem;
+            }
+
+            #about h2, #contact h2 {
                 font-size: 2.5rem;
             }
 
-            .tagline {
-                font-size: 1.2rem;
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
             }
 
-            .about-content,
             .contact-content {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
             }
 
-            .stats {
-                grid-template-columns: 1fr;
+            .contact-form {
+                margin-bottom: 0;
             }
 
             .screenshots-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .legal-content {
-                padding: 1.5rem;
+                padding: 3rem;
+                max-width: 900px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+        }
+
+        /* Responsive - Desktop */
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .tagline {
+                font-size: 1.5rem;
+            }
+
+            .app-buttons {
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                max-width: 1400px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Touch optimization */
+        @media (hover: none) and (pointer: coarse) {
+            .app-btn:hover {
+                transform: none;
+            }
+            
+            .screenshot-item:hover {
+                transform: none;
+            }
+            
+            .stat:hover {
+                transform: none;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .screenshot-item img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -499,8 +685,8 @@
                 <span class="cars">Cars</span>
                 <span class="number">963</span>
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-            <ul id="nav-menu">
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="فتح القائمة">☰</button>
+            <ul id="nav-menu" role="navigation">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#about">من نحن</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
@@ -513,17 +699,17 @@
             <div class="hero-content">
                 <h1 dir="ltr"><span class="number">963</span> <span class="cars">Cars</span></h1>
                 <p class="tagline">منصتك الموثوقة لتداول السيارات</p>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem;">تصفح، اشتري، وبع سيارات موثوقة بكل سهولة. فلتر حسب الماركة، السعر، أو الموديل لتحصل على أفضل النتائج فوراً.</p>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">تصفح، اشتري، وبع سيارات موثوقة بكل سهولة. فلتر حسب الماركة، السعر، أو الموديل لتحصل على أفضل النتائج فوراً.</p>
                 
                 <div class="app-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
+                    <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" class="app-btn" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                         </svg>
                         <span>حمّل من جوجل بلاي</span>
                     </a>
-                    <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" class="app-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
+                    <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" class="app-btn" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
                         </svg>
                         <span>حمّل من آب ستور</span>
@@ -532,22 +718,22 @@
 
                 <div class="screenshots-grid">
                     <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_03.jpg" alt="لقطة شاشة التطبيق 3">
+                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_03.jpg" alt="لقطة شاشة التطبيق - البحث والتصفح" loading="lazy">
                     </div>
                     <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_02.jpg" alt="لقطة شاشة التطبيق 2">
+                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_02.jpg" alt="لقطة شاشة التطبيق - تفاصيل السيارة" loading="lazy">
                     </div>
                     <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_01.jpg" alt="لقطة شاشة التطبيق 1">
+                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_01.jpg" alt="لقطة شاشة التطبيق - الشاشة الرئيسية" loading="lazy">
                     </div>
                     <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_06.jpg" alt="لقطة شاشة التطبيق 6">
+                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_06.jpg" alt="لقطة شاشة التطبيق - إضافة إعلان" loading="lazy">
                     </div>
                     <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_05.jpg" alt="لقطة شاشة التطبيق 5">
+                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_05.jpg" alt="لقطة شاشة التطبيق - الخريطة" loading="lazy">
                     </div>
                     <div class="screenshot-item">
-                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_04.jpg" alt="لقطة شاشة التطبيق 4">
+                        <img src="https://anasyakoub79.github.io/963-cars-public/6,9_04.jpg" alt="لقطة شاشة التطبيق - الملف الشخصي" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -596,11 +782,11 @@
                     <form onsubmit="handleSubmit(event)">
                         <div class="form-group">
                             <label for="name">الاسم</label>
-                            <input type="text" id="name" name="name" placeholder="اسمك" required>
+                            <input type="text" id="name" name="name" placeholder="اسمك" required autocomplete="name">
                         </div>
                         <div class="form-group">
                             <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
                         </div>
                         <div class="form-group">
                             <label for="subject">الموضوع</label>
@@ -628,11 +814,11 @@
                         <div class="contact-item-content">
                             <h3>حمّل تطبيقنا</h3>
                             <p>احصل على تطبيق <strong dir="ltr"><span class="number">963 </span><span class="cars">Cars</span></strong> على جهازك المحمول لأفضل تجربة</p>
-                            <div class="app-buttons" style="justify-content: flex-start; margin-top: 1rem;">
-                                <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" class="app-btn" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">
+                            <div class="app-buttons" style="justify-content: flex-start; margin-top: 1rem; flex-direction: column; align-items: stretch;">
+                                <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" class="app-btn" style="padding: 0.75rem 1rem; font-size: 0.9rem; max-width: 200px;" rel="noopener">
                                     جوجل بلاي
                                 </a>
-                                <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" class="app-btn" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">
+                                <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" class="app-btn" style="padding: 0.75rem 1rem; font-size: 0.9rem; max-width: 200px;" rel="noopener">
                                     آب ستور
                                 </a>
                             </div>
@@ -1094,8 +1280,8 @@
                 <div class="footer-section">
                     <h3>حمّل التطبيق</h3>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" style="display: inline-block;">جوجل بلاي</a>
-                        <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" style="display: inline-block;">آب ستور</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.l7techs.syriancars" target="_blank" style="display: inline-block;" rel="noopener">جوجل بلاي</a>
+                        <a href="https://apps.apple.com/app/963-cars/id6753609811" target="_blank" style="display: inline-block;" rel="noopener">آب ستور</a>
                     </div>
                 </div>
             </div>
@@ -1113,8 +1299,20 @@
 
         function handleSubmit(event) {
             event.preventDefault();
-            alert('شكراً لرسالتك! سنعود إليك قريباً.');
-            event.target.reset();
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'جاري الإرسال...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                alert('شكراً لرسالتك! سنعود إليك قريباً.');
+                event.target.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1000);
         }
 
         function showSection(sectionId) {
@@ -1137,6 +1335,23 @@
             // Close mobile menu if open
             document.getElementById('nav-menu').classList.remove('active');
         }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('nav-menu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('nav-menu').classList.remove('active');
+            }
+        });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1171,6 +1386,44 @@
                 }
             });
         });
+
+        // Add loading states to external links
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function() {
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 300);
+            });
+        });
+
+        // Lazy loading for images (if supported)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Prevent zoom on double tap for iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
